@@ -1,23 +1,23 @@
 <?php
 require "../lib/commonphp.php";
-require_once 'stores_function.php';
-require_once 'product_functions.php';
+require_once 'storesFunction.php';
+require_once 'productFunctions.php';
 // Set Variables for new stores
-$new_stores_names = array();
-$new_stores = read_newest_stores();
-$new_stores_count = 0;
+$newStoresNames = array();
+$newStores = readNewestStore();
+$newStoresCount = 0;
 // Set Variables for new products
-$new_products_names = array();
-$new_products = read_newest_products();
-$new_products_count = 0;
+$newProductsNames = array();
+$newProducts = readNewestProducts();
+$newProductsCount = 0;
 // Set Variables for featured stores
-$featured_store_names = array();
-$featured_stores = read_featured_products();
-$featured_stores_count = 0;
+$featuredStoreNames = array();
+$featuredStores = readFeaturedStores();
+$featuredStoresCount = 0;
 // Set Variables for featured products
-$featured_products_names = array();
-$featured_products = read_featured_products();
-$featured_products_count = 0;
+$featuredProducts_names = array();
+$featuredProducts = readFeaturedProducts();
+$featuredProductsCount = 0;
 
 // Load template
 require_once "../lib/head.php";
@@ -33,16 +33,16 @@ require_once "../lib/header.php";
         <div class="slider-wrap">
             <div class="slider">
                 <?php
-            foreach ($new_stores as $new_store) {
-                $name = $new_store['name'];
+            foreach ($newStores as $newStore) {
+                $name = $newStore['name'];
                 echo "
                 <div class='slider-item'>
                     <div class='img-div'></div>
                     <h3>$name</h3>
                 </div>
         ";
-                $new_stores_count++;
-                if ($new_stores_count == 10) {
+                $newStoresCount++;
+                if ($newStoresCount == 10) {
                     break;
                 }
             }
@@ -56,17 +56,17 @@ require_once "../lib/header.php";
     <div class="slider-wrap1">
         <div class="slider1">
             <?php
-            foreach ($new_products as $new_product) {
-                $name = $new_product['name'];
-                $price = $new_product['price'];
+            foreach ($newProducts as $newProduct) {
+                $name = $newProduct['name'];
+                $price = $newProduct['price'];
                 echo "
                 <div class='slider-item1'>
                     <div class='img-div1'></div>
                     <h3>$name</h3>
                     <h3>$price</h3>
                 </div>";
-                $new_products_count++;
-                if ($new_products_count == 10) {
+                $newProductsCount++;
+                if ($newProductsCount == 10) {
                     break;
                 }
             }
@@ -80,15 +80,15 @@ require_once "../lib/header.php";
     <div class="slider-wrap2nd">
         <div class="slider2nd">
             <?php
-            foreach ($featured_stores as $featured_store) {
-                $name = $featured_store['name'];
+            foreach ($featuredStores as $featuredStore) {
+                $name = $featuredStore['name'];
                 echo "
                 <div class='slider-item2nd'>
                     <div class='img-div2nd'></div>
                     <h3>$name</h3>
                 </div>";
-                $featured_stores_count++;
-                if ($featured_stores_count == 10) {
+                $featuredStoresCount++;
+                if ($featuredStoresCount == 10) {
                     break;
                 }
             }
@@ -102,17 +102,17 @@ require_once "../lib/header.php";
     <div class="slider-wrap3rd">
         <div class="slider3rd">
             <?php
-            foreach ($featured_products as $featured_product) {
-                $name = $featured_product['name'];
-                $price = $featured_product['price'];
+            foreach ($featuredProducts as $featuredProduct) {
+                $name = $featuredProduct['name'];
+                $price = $featuredProduct['price'];
                 echo "
                 <div class='slider-item3rd'>
                     <div class='img-div3rd'></div>
                     <h3>$name</h3>
                     <h3>$price</h3>
                 </div>";
-                $featured_products_count++;
-                if ($featured_products_count == 10) {
+                $featuredProductsCount++;
+                if ($featuredProductsCount == 10) {
                     break;
                 }
             }
