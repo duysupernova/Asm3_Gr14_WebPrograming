@@ -1,7 +1,7 @@
 <?php
 require 'productFunctions.php';
-// readAllStore
 function readAllStore() {
+  //This function read all the store lines by lines
   $fileName = '../data/stores.csv';
   $open = fopen($fileName, 'r');
   $first = fgetcsv($open);
@@ -19,6 +19,7 @@ function readAllStore() {
 }
 
 function readNewestStore() {
+  //This function read all the newest stores lines by lines
   $fileName = '../data/stores.csv';
   $open = fopen($fileName, 'r');
   $first = fgetcsv($open);
@@ -37,6 +38,7 @@ function readNewestStore() {
 
 }
 function readFeaturedStores() {
+  //This function read all the featured stores lines by lines
   $fileName = '../data/stores.csv';
   $open = fopen($fileName, 'r');
   $first = fgetcsv($open);
@@ -57,6 +59,7 @@ function readFeaturedStores() {
 
 
 function getStore($storeID) {
+  //Get the a store ID for testing
   $stores = readAllStore();
   foreach ($stores as $p) {
     if ($p['id'] == $storeID) {
