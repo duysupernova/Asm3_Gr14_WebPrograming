@@ -164,10 +164,10 @@ get_new_arrivals($all_products, $number_of_products);
         <header>
             <div class="bar-content">
                 <div class="bar-content center">
-                    <img  src="img/logo.png">
+                    <img src="img/logo.png">
                     <label class="bar__nav-toggle" for="inpNavToggle">
                         <i class="fas fa-bars"></i>
-                        
+
                     </label>
                     <input type="checkbox" id="inpNavToggle" />
                     <nav class="nav">
@@ -176,9 +176,9 @@ get_new_arrivals($all_products, $number_of_products);
                         <a class="link" href="product.php">Product</a>
                         <a class="link" href="contact.html">Contact</a>
                         <a class="link cart-number" href="cart.php">
-								
 
-                                </a>
+
+                        </a>
                     </nav>
                 </div>
             </div>
@@ -194,7 +194,7 @@ get_new_arrivals($all_products, $number_of_products);
                     <a href="" class="button">EXPLODE NOW!</a>
                 </div>
                 <div class="col">
-                    <div class = "homeimg">
+                    <div class="homeimg">
                         <img src="img/home.png" width="500px">
                     </div>
                 </div>
@@ -205,8 +205,8 @@ get_new_arrivals($all_products, $number_of_products);
     <!-----Feature----->
     <div class="feature">
         <h2>Featured Items</h2>
-            <div class="container-product">
-                <div class="row">
+        <div class="container-product">
+            <div class="row">
 
                 <?php
                     for ($i=0; $i < count($featured_store_products); $i++) {
@@ -217,33 +217,33 @@ get_new_arrivals($all_products, $number_of_products);
          
                         $img = "1.png";
                 ?>
-                    <div class="col-product-3">
-                        <img src="img/product/<?php echo $img; ?>" alt="<?php echo $name; ?>">
-                        <h3><?php echo $name; ?></h3>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-o"></i>
+                <div class="col-product-3">
+                    <img src="img/product/<?php echo $img; ?>" alt="<?php echo $name; ?>">
+                    <h3><?php echo $name; ?></h3>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
 
-                            </div>
-                            <p>$<?php echo $price; ?></p>
                     </div>
+                    <p>$<?php echo $price; ?></p>
+                </div>
                 <?php
                     }
                 ?>
-                </div>
             </div>
+        </div>
     </div>
 
-   <!-----NewArrival----->
-   <div class="newArrival">
-    <h2>New Arrival</h2>
+    <!-----NewArrival----->
+    <div class="newArrival">
+        <h2>New Arrival</h2>
         <div class="container-product">
             <div class="row">
 
-            <?php
+                <?php
 
                 for ($i=0; $i < count($new_arrivals); $i++) {
                     $raw_data = $new_arrivals[$i];
@@ -258,27 +258,28 @@ get_new_arrivals($all_products, $number_of_products);
                     <h3><?php echo $name; ?></h3>
                     <p>$<?php echo $price ?></p>
                 </div>
-            <?php
+                <?php
                 }
             ?>
             </div>
         </div>
-</div>
-<footer>
-    <a class="footer-link" href="footerContents/copyright.html">
-        <i class="far fa-copy"></i>
-        <span class="des">Copy Right</span>
-    </a>
-    <a class="footer-link" href="footerContents/tos.html">
-        <i class="fas fa-concierge-bell"></i>
-        <span class="des">ToS</span>
-    </a>
-    <a class="footer-link" href="footerContents/privacypolicy.html">
-        <i class="fas fa-user-secret"></i>
-        <span class="des">Privacy policy</span>
-    </a>
-</footer>
-<script src ="./js/product.js" ></script>
+    </div>
+    <footer>
+        <a class="footer-link" href="footerContents/copyright.html">
+            <i class="far fa-copy"></i>
+            <span class="des">Copy Right</span>
+        </a>
+        <a class="footer-link" href="footerContents/tos.html">
+            <i class="fas fa-concierge-bell"></i>
+            <span class="des">ToS</span>
+        </a>
+        <a class="footer-link" href="footerContents/privacypolicy.html">
+            <i class="fas fa-user-secret"></i>
+            <span class="des">Privacy policy</span>
+        </a>
+    </footer>
+    <script src="./js/product.js"></script>
 
 </body>
+
 </html>
