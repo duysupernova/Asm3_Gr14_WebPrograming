@@ -57,7 +57,7 @@ function getclonesWidth3rd(){
 
 function scrollUpdate3rd(){
     if(window.innerWidth > 760){
-        sliderWrap3rd.style.overflow = 'hidden';
+        sliderWrap3rd.style.overflow = 'scroll';
         if(!sliderHover3rd){
             scrollPos3rd -= 2
         }
@@ -68,8 +68,6 @@ function scrollUpdate3rd(){
         }else if(scrollPos3rd <= 0){
             scrollPos3rd = sliderwidth3rd - clonesWidth3rd - 1
         }
-        slider3rd.style.transform = `translateX(${-scrollPos3rd}px)`
-    
         req3rd = requestAnimationFrame(scrollUpdate3rd)
     }else{
         sliderWrap3rd.style.overflow = 'scroll';

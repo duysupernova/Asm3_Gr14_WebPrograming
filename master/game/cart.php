@@ -1,5 +1,7 @@
+<?php
+session_start();
 
-<?php session_start();?>
+?>
 
 <!DOCTYPE html>
 <html>
@@ -8,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <meta name="author" content="Khang Tran s3855823">
-    <title>BOX | CART</title>
+    <title>Asport | CART</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/headerandfooter.css" />
@@ -17,7 +19,7 @@
 </head>
 
 <body>
-    <div id="shop-name" hidden>BOX</div>
+    <div id="shop-name" hidden>sport</div>
     <div class="header">
         <!-- Header -->
         <header>
@@ -82,7 +84,6 @@
                     </div>
                     </div>';
         }
-        
         ?>
 
         <!-- CART -->
