@@ -15,6 +15,12 @@ let imgLinks3rd = [
     'New_products/beauty1.jpg',
     'New_products/bts.jpg',
     'New_products/kitchen.jpg',
+    'New_products/beauty.jpg',
+    'New_products/beauty1.jpg',
+    'New_products/bts.jpg',
+    'New_products/kitchen.jpg',
+    'New_products/bts.jpg',
+    'New_products/kitchen.jpg',
 ]
 
 // apply above images as a background to the image items
