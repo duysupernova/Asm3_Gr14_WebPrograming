@@ -28,6 +28,7 @@ function get_new_arrivals($arr, $arr_size)
     $second = 0;
     $third = 0;
     $fourth = 0;
+    $fifth = 0;
     $counter = 0;
 
     for ($i = 0; $i < $arr_size ; $i ++)
@@ -38,7 +39,10 @@ function get_new_arrivals($arr, $arr_size)
         $new_arrivals_data_timestamp = strtotime($new_arrivals_created_time);
         $current_timestamp = intval($new_arrivals_data_timestamp);
 
+        
         if ($current_timestamp > $first){
+            $fifth = $fourth;
+            $new_arrivals[4] = $new_arrivals[3];
             $fourth = $third;
             $new_arrivals[3] = $new_arrivals[2];
             $third = $second;
@@ -48,6 +52,8 @@ function get_new_arrivals($arr, $arr_size)
             $first = $current_timestamp;
             $new_arrivals[0] = $current_data;
         } else if ($current_timestamp > $second){
+            $fifth = $fourth;
+            $new_arrivals[4] = $new_arrivals[3];
             $fourth = $third;
             $new_arrivals[3] = $new_arrivals[2];
             $third = $second;
@@ -55,17 +61,26 @@ function get_new_arrivals($arr, $arr_size)
             $second = $current_timestamp;
             $new_arrivals[1] = $current_data;
         } else if ($current_timestamp > $third){
+            $fifth = $fourth;
+            $new_arrivals[4] = $new_arrivals[3];
             $fourth = $third;
             $new_arrivals[3] = $new_arrivals[2];
             $third = $current_timestamp;
             $new_arrivals[2] = $current_data;
         } else if ($current_timestamp > $fourth){
+            $fifth = $fourth;
+            $new_arrivals[4] = $new_arrivals[3];
             $fourth = $current_timestamp;
             $new_arrivals[3] = $current_data;
+        } else if ($current_timestamp > $fifth){
+            $fifth = $current_timestamp;
+            $new_arrivals[4] = $current_data;
+
         }
         $counter++;
     }
-}
+    }
+
 
 
 if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
@@ -75,14 +90,20 @@ if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
 $url.= $_SERVER['HTTP_HOST'];   
 $url.= $_SERVER['REQUEST_URI'];          
 $url_components = parse_url($url);
-parse_str($url_components['query'], $params);
+if(isset($url_components['query'])){
+    parse_str($url_components['query'], $params);
+    if($params['storeID'] != ""){
+        $_SESSION["storeID"] =  $params['storeID'];
+    }
+}
+
 $path = "../../data/products.csv";
 $file = fopen($path,"r");
 $counter = 1;
 $featured_store_products = [];
-$new_arrivals = ["", "", "", ""];
+$new_arrivals = ["", "", "", "",""];
 $all_products = [];
-$_SESSION["storeID"] =  $params['storeID'];
+
 
 while(! feof($file)){
 
@@ -98,9 +119,8 @@ while(! feof($file)){
                 array_push($all_products, $raw_data);
 
                 if(trim($featured_in_store) == "TRUE"){
-                    if(count($featured_store_products) != 3){
                         array_push($featured_store_products, $raw_data);
-                    }
+                    
                 }
             }
         }
@@ -228,11 +248,10 @@ get_new_arrivals($all_products, $number_of_products);
                 for ($i=0; $i < count($new_arrivals); $i++) {
                     $raw_data = $new_arrivals[$i];
                     $data = explode(",", $raw_data);
+                
                     $name = $data[1];
                     $price = $data[2];
-                    $img_tmp = explode(" ", $name);
-                    $img = implode("", $img_tmp);
-                    $img = strtolower($img).".png";
+                    $img = "2.png";
             ?>
                 <div class="col-product-4">
                     <img src="img/product/<?php echo $img; ?>" alt="<?php echo $name; ?>">

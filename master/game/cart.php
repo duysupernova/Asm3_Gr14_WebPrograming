@@ -1,3 +1,4 @@
+session_start();
 <!DOCTYPE html>
 <html>
 
@@ -49,9 +50,22 @@
 		  </div>
 		</div>  
         <?php
-        session_start();
-        $_SESSION['login'] = false;
-        if($_SESSION['login'] === true){
+        if(isset($_SESSION['login'])){
+            if($_SESSION['login'] === true){
+            }
+            else{
+                echo '<div id="login-modal" class="modal">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            Please login to proceed.
+                            </br>
+                            <span>
+                                <a href="../register.php" class="button">login</a>
+                            </span>
+                        </div>
+                        </div>';
+            }
         }
         else{
             echo '<div id="login-modal" class="modal">
@@ -66,6 +80,7 @@
                     </div>
                     </div>';
         }
+        
         ?>
         
         <!-- CART -->
@@ -105,7 +120,7 @@
 
             </div>
             <div class="buttons">
-                <a href="product.html" class="button">Continue Shopping</a>
+                <a href="product.php" class="button">Continue Shopping</a>
                 <a href="thankyou.html" class="button1 order">Order</a>
             </div>
         </div>

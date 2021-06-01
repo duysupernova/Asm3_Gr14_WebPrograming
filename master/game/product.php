@@ -27,7 +27,7 @@ function sortCSVFile($file, $columnToSortByIndex = 0, $asc = true ){
     array_shift($csvArray);
     $temp_csv_array = array();
     for ($i=0; $i < count($csvArray); $i++) { 
-        if($csvArray[$i][4] == "10"){
+        if($csvArray[$i][4] == $_SESSION["storeID"]){
             $temp_csv_array[] = $csvArray[$i];
         }
     }
@@ -140,7 +140,7 @@ $last_product = $paginationStart + $limit;
                 <option value="3" <?php echo ($sort_value == 3) ? "selected" : ""; ?>>Sort by Price</option>
                 <option value="4" <?php echo ($sort_value == 4) ? "selected" : ""; ?>>Sort by Newest</option>
                 <option value="5" <?php echo ($sort_value == 5) ? "selected" : ""; ?>>Sort by Oldest</option>
-
+            
             </select>
         </div>
         <div class="row">
