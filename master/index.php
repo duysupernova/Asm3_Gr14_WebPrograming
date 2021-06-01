@@ -11,9 +11,9 @@ $newProductsNames = array();
 $newProducts = readNewestProducts();
 $newProductsCount = 0;
 // Set Variables for featured stores
-$featuredStoreNames = array();
-$featuredStores = readFeaturedStores();
-$featuredStoresCount = 0;
+$featured_store_names = array();
+$featured_stores = read_featured_stores();
+$featured_stores_count = 0;
 // Set Variables for featured products
 $featuredProducts_names = array();
 $featuredProducts = readFeaturedProducts();

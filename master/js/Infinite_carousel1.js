@@ -17,6 +17,13 @@ let imgLinks1 = [
     'New_products/np4.jpg',
     'New_products/book.jpg',
     'New_products/book1.jpg',
+    'New_products/np1.jpg',
+    'New_products/np2.jpg',
+    'New_products/np3.jpg',
+    'New_products/np4.jpg',
+    'New_products/book.jpg',
+    'New_products/book1.jpg',
+    'New_products/book1.jpg'
 
 ]
 
