@@ -78,6 +78,28 @@ function getCSVfile($filepath){
     return $results;
 }
 
+function getRegisterEmail(){
+    //This function return email information array of registred user.
+    $filepath = 'register.csv';
+    $db = getCSVfile($filepath);
+    $results = [];
+    foreach($db as $data){
+        $results[] = $data["email"];
+    }
+    return $results;
+}
+
+function getRegisterPhoneNvm(){
+    //This function return phone number information array of registred user.
+    $filepath = 'register.csv';
+    $db = getCSVfile($filepath);
+    $results = [];
+    foreach($db as $data){
+        $results[] = $data["phone_number"];
+    }
+    return $results;   
+}
+
 function showUserInfo($filepath, $uID){
     //This function receive file path and user ID as parameters
     //and returns user information whose email or phone number in the receive file. 
