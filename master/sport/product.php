@@ -18,6 +18,8 @@ $last_product = $paginationStart + $limit;
 $sort_value = 1;
 if(isset($_GET['sort'])){
     $sort_products = sortSelect($_GET['sort']);
+    $sort_value =$_GET['sort'];
+
 }
 else{
     $sort_products = sortCSVFile($path);

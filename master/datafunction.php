@@ -9,7 +9,7 @@ function getData($fileName, $cleanProccessingOn = false){
     if ($file != null){
         while(!feof($file)){
             $line = fgets($file);
-            if(str_contains($line, ":")){
+            if(strpos($line, ":") != false){
                 $split = explode(":", $line);
                 $dataArr[$split[0]] = $split[1];
             } else {

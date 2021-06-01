@@ -18,6 +18,8 @@ $last_product = $paginationStart + $limit;
 $sort_value = 1;
 if(isset($_GET['sort'])){
     $sort_products = sortSelect($_GET['sort']);
+    $sort_value =$_GET['sort'];
+
 }
 else{
     $sort_products = sortCSVFile($path);
@@ -30,7 +32,7 @@ else{
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <meta name="author" content="Khang Tran s3855823">
-    <title>Asport | PRODUCT</title>
+    <title>BOX | PRODUCT</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/headerandfooter.css" />
