@@ -20,7 +20,7 @@ require_once "../lib/header.php";
     <!--Sign In Btn-->
     <section id="rSignInCont">
         <p>Are you already our member?</p>
-        <button type="button"><a href="myAccount.php">Sign In</a></button>
+        <button type="button"><a href="myaccount.php">Sign In</a></button>
     </section>
 
     <!--Register Form-->
