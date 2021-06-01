@@ -20,7 +20,11 @@ require_once "../lib/header.php";
     <!--Sign In Btn-->
     <section id="rSignInCont">
         <p>Are you already our member?</p>
+<<<<<<< Updated upstream
         <button type="button"><a href="myAccount.html">Sign In</a></button>
+=======
+        <button type="button"><a href="myaccount.php">Sign In</a></button>
+>>>>>>> Stashed changes
     </section>
 
     <!--Register Form-->
