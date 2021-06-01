@@ -16,6 +16,11 @@ let imgLinks = [
     'New_products/mall3.jpg',
     'New_products/mall4.jpg',
     'New_products/mall5.jpg',
+    'New_products/mall1.jpg',
+    'New_products/mall2.jpg',
+    'New_products/mall3.jpg',
+    'New_products/mall4.jpg',
+    'New_products/mall5.jpg',
 ]
 
 // apply above images as a background to the image items
