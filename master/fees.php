@@ -26,7 +26,7 @@ require_once "../lib/header.php";
                         <div class="border"></div>
                         <li><b>None</b> Support</li>
                     </ul>
-                    <a href="accountContents/register.html">Choose this option!</a>
+                    <a href="register.php">Choose this option!</a>
                 </div>
                 <div class="pricing-table table2">
                     <div class="pricing-header">
@@ -40,7 +40,7 @@ require_once "../lib/header.php";
                         <div class="border"></div>
                         <li><b>24h</b> Support</li>
                     </ul>
-                    <a href="accountContents/register.html">Choose this option!</a>
+                    <a href="register.php">Choose this option!</a>
                 </div>
 
                 <div class="pricing-table table3">
@@ -55,7 +55,7 @@ require_once "../lib/header.php";
                         <div class="border"></div>
                         <li><b>24h</b> Support</li>
                     </ul>
-                    <a href="accountContents/register.html">Choose this option!</a>
+                    <a href="register.php">Choose this option!</a>
                 </div>
             </div>
     </div>
