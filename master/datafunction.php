@@ -78,6 +78,37 @@ function getCSVfile($filepath){
     return $results;
 }
 
+function getAdminID(){
+    //This function return admin ID as a string
+    $dataAssArr = getData("../data/admin.txt");
+    $id = $dataAssArr["id"];
+    $id = str_replace("\n","",$id);
+    $id = trim($id);
+    return $id;
+}
+
+function getRegisterEmail(){
+    //This function return email information array of registred user.
+    $filepath = '../data/register.csv';
+    $db = getCSVfile($filepath);
+    $results = [];
+    foreach($db as $data){
+        $results[] = $data["email"];
+    }
+    return $results;
+}
+
+function getRegisterPhoneNvm(){
+    //This function return phone number information array of registred user.
+    $filepath = '../data/register.csv';
+    $db = getCSVfile($filepath);
+    $results = [];
+    foreach($db as $data){
+        $results[] = $data["phone_number"];
+    }
+    return $results;   
+}
+
 function showUserInfo($filepath, $uID){
     //This function receive file path and user ID as parameters
     //and returns user information whose email or phone number in the receive file. 

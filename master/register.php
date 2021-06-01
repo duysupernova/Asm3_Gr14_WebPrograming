@@ -1,5 +1,18 @@
 <?php
+session_start();
 require "../lib/commonphp.php";
+function displayErrMsg($errPos){
+    return "<li>{$errPos}</li>";
+}
+$emailErr = (isset($_SESSION["rEmailErr"])) ? displayErrMsg($_SESSION["rEmailErr"]): null;
+$phoneErr = (isset($_SESSION["rPhoneNvmErr"])) ? displayErrMsg($_SESSION["rPhoneNvmErr"]): null;
+$pswErr = (isset($_SESSION["pswErr"])) ? displayErrMsg($_SESSION["pswErr"]): null;
+$repswErr = (isset($_SESSION["pswCheckErr"])) ? displayErrMsg($_SESSION["pswCheckErr"]): null;
+$fNameErr = (isset($_SESSION["fNameErr"])) ? displayErrMsg($_SESSION["fNameErr"]): null;
+$lNameErr = (isset($_SESSION["lNameErr"])) ? displayErrMsg($_SESSION["lNameErr"]): null;
+$addressErr = (isset($_SESSION["addressErr"])) ? displayErrMsg($_SESSION["addressErr"]): null;
+$cityErr = (isset($_SESSION["cityErr"])) ? displayErrMsg($_SESSION["cityErr"]): null;
+$zCodeErr = (isset($_SESSION["zCodeErr"])) ? displayErrMsg($_SESSION["zCodeErr"]): null;
 
 // Load template
 require_once "../lib/head.php";
@@ -12,7 +25,7 @@ require_once "../lib/header.php";
     <!--Sign In Btn-->
     <section id="rSignInCont">
         <p>Are you already our member?</p>
-        <button type="button"><a href="myaccount.php">Sign In</a></button>
+        <button type="button"><a href="myAccount.html">Sign In</a></button>
     </section>
 
     <!--Register Form-->
@@ -20,60 +33,68 @@ require_once "../lib/header.php";
         <h1>Register Account</h1>
         <h2>Personal Information</h2>
         <p>The following fields are required for all member.</p>
-        <form id="registerForm" action="success.php" onsubmit="return register();">
+        <form id="registerForm" action="registerProcessing.php" onsubmit="return register();" method="post">
             <label for="email">
                 <h3>Email:</h3>
             </label>
-            <input type="text" id="rEmail" name="rEmail" required>
-            <ul class="errCont " id="emailList"></ul>
+            <input type="text" id="rEmail" name="rEmail">
+            <ul class="errCont invalidForm validForm" id="emailList"><?php if($emailErr !== null){echo $emailErr;}?>
+            </ul>
             <label for="phoneNvm">
                 <h3>Phone Number:</h3>
             </label>
-            <input type="text" id="rPhoneNvm" name="rPhoneNvm" required>
-            <ul class="errCont " id="phoneNvmList"></ul>
+            <input type="text" id="rPhoneNvm" name="rPhoneNvm">
+            <ul class="errCont invalidForm validForm" id="phoneNvmList">
+                <?php if($phoneErr !== null){echo $phoneErr;}?></ul>
             <label for="psw">
                 <h3>Password:</h3>
             </label>
-            <input type="password" id="psw" name="psw" required>
-            <ul class="errCont " id="pwList"></ul>
+            <input type="password" id="psw" name="psw">
+            <ul class="errCont invalidForm validForm" id="pwList"><?php if($pswErr !== null){echo $pswErr;}?></ul>
             <label for="pswCheck">
                 <h3>Retype password:</h3>
             </label>
-            <input type="password" id="pswCheck" name="pswCheck" required>
-            <ul class="errCont " id="repwList"></ul>
+            <input type="password" id="pswCheck" name="pswCheck">
+            <ul class="errCont invalidForm validForm" id="repwList"><?php if($repswErr !== null){echo $repswErr;}?>
+            </ul>
             <label for="pic">
                 <h3>Profile picture:</h3>
             </label>
-            <input type="file" id="pic" name="pic" required>
+            <input type="file" id="pic" name="pic">
             <label for="fName">
                 <h3>First Name:</h3>
             </label>
-            <input type="text" id="fName" name="fName" required>
-            <ul class="errCont " id="fNameList"></ul>
+            <input type="text" id="fName" name="fName">
+            <ul class="errCont invalidForm validForm" id="fNameList"><?php if($fNameErr !== null){echo $fNameErr;}?>
+            </ul>
             <label for="lName">
                 <h3>Last Name:</h3>
             </label>
-            <input type="text" id="lName" name="lName" required>
-            <ul class="errCont " id="lNameList"></ul>
+            <input type="text" id="lName" name="lName">
+            <ul class="errCont invalidForm validForm" id="lNameList"><?php if($lNameErr !== null){echo $lNameErr;}?>
+            </ul>
             <label for="address">
                 <h3>Address:</h3>
             </label>
-            <input type="text" id="address" name="address" required>
-            <ul class="errCont " id="addressList"></ul>
+            <input type="text" id="address" name="address">
+            <ul class="errCont invalidForm validForm" id="addressList">
+                <?php if($addressErr !== null){echo $addressErr;}?></ul>
             <label for="city">
                 <h3>City:</h3>
             </label>
-            <input type="text" id="city" name="city" required>
-            <ul class="errCont " id="cityList"></ul>
+            <input type="text" id="city" name="city">
+            <ul class="errCont invalidForm validForm" id="cityList"><?php if($cityErr !== null){echo $cityErr;}?>
+            </ul>
             <label for="zCode">
                 <h3>Zipcode:</h3>
             </label>
-            <input type="text" id="zCode" name="zCode" placeholder="only 4 or 6 digits are available" required>
-            <ul class="errCont " id="zCodeList"></ul>
+            <input type="text" id="zCode" name="zCode" placeholder="only 4 or 6 digits are available">
+            <ul class="errCont invalidForm validForm" id="zCodeList"><?php if($zCodeErr !== null){echo $zCodeErr;}?>
+            </ul>
 
             <!--Country List-->
             <h3>Country:</h3>
-            <select name="countryList" required>
+            <select name="countryList">
                 <option value="">Please Select</option>
                 <optgroup label="A">
                     <option value="AF">Afghanistan</option>
@@ -427,7 +448,7 @@ require_once "../lib/header.php";
             <!--Below Btn-->
             <div id="submitBtnCont">
                 <input type="reset" value="Clear" />
-                <input type="submit" value="Register" />
+                <input type="submit" value="Register" name="registerOn" />
             </div>
         </form>
     </section>
@@ -436,6 +457,6 @@ require_once "../lib/header.php";
     require_once "../lib/cookie.php";
     require_once "../lib/footer.php";
     require_once "../lib/script.php";
-    $jsArr = ["cookies","formvalidation","register"];
+    $jsArr = ["cookies","formvalidation","register","checkstatus"];
     callJSfile($jsArr);       
 ?>
