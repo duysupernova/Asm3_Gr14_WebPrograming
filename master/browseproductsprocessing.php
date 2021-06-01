@@ -14,7 +14,7 @@ function sortByName($standartLetter){
 }
 
 function sortByCatagory($standardCatID){
-    //This function receives th estandard cateagory id as parameters
+    //This function receives the standard cateagory id as parameters
     //and returns array which only matched with the standard cateagory id.
     $storeArr = getCSVfile("../data/stores.csv");
     foreach($storeArr as $data){

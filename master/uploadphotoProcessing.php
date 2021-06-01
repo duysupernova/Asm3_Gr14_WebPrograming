@@ -2,8 +2,6 @@
 session_start();
 // The below code receive photo from the admin
 // and change the portraits of the member who the admin want to change.
-
-//<!--accept="image/png, image/jpeg"-->
 if(isset($_POST["uploadSubmitOn"])){
     if($_FILES["profile"]["error"] == UPLOAD_ERR_OK){
         $fName = $_FILES["profile"]["name"];
