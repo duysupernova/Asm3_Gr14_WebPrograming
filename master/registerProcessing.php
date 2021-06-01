@@ -94,10 +94,11 @@ function saveInfoToCsv($email, $phoneNvm, $password){
     //This function receives file name, and clean proccessing as parameters
     // and save the information into assigned file.
     $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
-    $info = "\n{$email}, {$phoneNvm}, {$hashedpassword}";
+    $info = [$email,$phoneNvm,$hashedpassword];
     $file = fopen("../data/register.csv", "a");
     flock($file, LOCK_EX);
-    fwrite($file,$info);
+    fputcsv($file,$info);
+    fwrite($file,"\n");
     flock($file, LOCK_UN);
     fclose($file);
 
