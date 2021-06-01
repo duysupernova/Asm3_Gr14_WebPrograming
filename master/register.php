@@ -1,5 +1,6 @@
 <?php
 session_start();
+require "../lib/commonphp.php";
 function displayErrMsg($errPos){
     return "<li>{$errPos}</li>";
 }
@@ -12,43 +13,13 @@ $lNameErr = (isset($_SESSION["lNameErr"])) ? displayErrMsg($_SESSION["lNameErr"]
 $addressErr = (isset($_SESSION["addressErr"])) ? displayErrMsg($_SESSION["addressErr"]): null;
 $cityErr = (isset($_SESSION["cityErr"])) ? displayErrMsg($_SESSION["cityErr"]): null;
 $zCodeErr = (isset($_SESSION["zCodeErr"])) ? displayErrMsg($_SESSION["zCodeErr"]): null;
+// Load template
+require_once "../lib/head.php";
+$cssArr = ["headerandfooter","accountcontentsStyle","register","formvalidation","cookies"];
+$fileTitle = "Register Account";
+callCSSfile($cssArr, $fileTitle);
+require_once "../lib/header.php";
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='css/headerandfooter.css'>
-    <link rel='stylesheet' href='css/accountcontentsStyle.css'>
-    <link rel='stylesheet' href='css/register.css'>
-    <link rel='stylesheet' href='css/formvalidation.css'>
-    <link rel="stylesheet" type ="text/css" href="css/cookies.css"/>
-    <title>Register Account</title>
-</head>
-
-<body>
-    <!-- Header -->
-    <header>
-        <div class="bar-content">
-            <div class="bar-content center">
-                <i class="fas fa-store-alt"></i>
-                <label class="bar__nav-toggle" for="inpNavToggle">
-                    <i class="fas fa-bars"></i>
-                </label>
-                <input type="checkbox" id="inpNavToggle" />
-                <nav class="nav">
-                    <a class="link" href="index.html">Home</a>
-                    <a class="link" href="aboutus.html">About us</a>
-                    <a class="link" href="fees.html">Fees</a>
-                    <a class="link" id="account" href="myaccount.html">My account</a>
-                    <a class="link" href="browseproducts.html">Browse</a>
-                    <a class="link" href="faq.html">FAQs</a>
-                    <a class="link" href="contact.html">Contact</a>
-                </nav>
-            </div>
-        </div>
-    </header>
     <main id="mainReg">
         <!--Sign In Btn-->
         <section id="rSignInCont">
@@ -416,95 +387,19 @@ $zCodeErr = (isset($_SESSION["zCodeErr"])) ? displayErrMsg($_SESSION["zCodeErr"]
                         <option value="ZW">Zimbabwe</option>
                     </optgroup>
                 </select>
-
-                <!--radio Btn-->
-                <h3>Account Type:</h3>
-                <div id="typeCont">
-                    <input type="radio" id="shopper" name="rType" checked>
-                    <label class="radioType " for="shopper">
-                        <img src="New_products/icon/shopper.png"
-                            alt="This is an icon of shopper. The icon displays person holds two shopping bags..">
-                        <span>Shopper</span>
-                    </label>
-                    <input type="radio" id="owner" name="rType">
-                    <label class="radioType " for="owner">
-                        <img src="New_products/icon/owner.png"
-                            alt="This is an icon of owner. The icon displays a person holds a briefcase.">
-                        <span>Store Owner</span>
-                    </label>
-                </div>
-
-                <!--Store Owner Only-->
-                <div class="ownerInfo">
-                    <h2>Business Information</h2>
-                    <p>The following fields are required only for a store owner.</p>
-                    <label for="bName">
-                        <h3>Business name</h3>
-                    </label>
-                    <input type="text" class="" id="bName" name="bName">
-                    <label for="sName">
-                        <h3>Store name</h3>
-                    </label>
-                    <input type="text" class="" id="sName" name="sName">
-                    <h3>Store Category:</h3>
-                    <select name='storeCategory'>
-                        <option value="" selected>Please Select</option>
-                        <option value="acc">Accessory stores</option>
-                        <option value="cloth">Clothing stores</option>
-                        <option value="department">Department stores</option>
-                        <option value="grocery">Grocery stores</option>
-                        <option value="kiosks">Kiosks</option>
-                        <option value="pet">Pet stores</option>
-                        <option value="pharmacy">Pharmacies</option>
-                        <option value="restaurant">Restaurants</option>
-                        <option value="service">Services</option>
-                        <option value="specialty">Specialty stores</option>
-                        <option value="tech">Technology stores</option>
-                        <option value="thrift">Thrift stores</option>
-                        <option value="toy">Toy stores</option>
-                    </select>
-                </div>
-
-                  <!--Below Btn-->
-                    <div id="submitBtnCont">
-                        <input type="reset" value="Clear"/>
-                        <input type="submit" value="Register" name="registerOn"/>
-                    </div>
-                </form>
-            </section>    
-        </main>
-        <!--Cookies-->
-        <div class="popup_cookies">
-            <img src="New_products/cookie.gif" alt="A cookie">
-            <div class="cookies_content">
-              <h1>We use Cookies!</h1>
-              <p>This website use cookies to help us maintain the functioning. By continuing browsing, you consent to use our use of cookies and other technologies.</p>
-              <div class="cookies_buttons">
-                <button class="learn_more">I agree</button>
-                <a href="https://gdpr-info.eu/" class="learn_more">GDPR</a>
-              </div>
+            <!--Below Btn-->
+            <div id="submitBtnCont">
+                <input type="reset" value="Clear" />
+                <input type="submit" value="Register" name="registerOn" />
             </div>
-          </div>
-          
-        <!-- Footer -->
-        <footer>
-            <a class="footer-link" href="copyright.html">
-                <i class="far fa-copy"></i>
-                <span class="des">Copy Right</span>
-            </a>
-            <a class="footer-link" href="tos.html">
-                <i class="fas fa-concierge-bell"></i>
-                <span class="des">ToS</span>
-            </a>
-            <a class="footer-link" href="privacypolicy.html">
-                <i class="fas fa-user-secret"></i>
-                <span class="des">Privacy Policy</span>
-            </a>
-        </footer>
-        <script type="text/javascript" src="js/cookies.js"></script>
-        <script type="text/javascript" src="js/formvalidation.js"></script>
-        <script type="text/javascript" src="js/register.js"></script>
-        <script type="text/javascript" src="js/checkstatus.js"></script>
-        <noscript>It seems like your browser does not support JavaScript. Please check again.</noscript>
-    </body>
-</html>
+        </form>
+    </section>
+</main>
+<?php
+    require_once "../lib/cookie.php";
+    require_once "../lib/footer.php";
+    require_once "../lib/script.php";
+    $jsArr = ["cookies","formvalidation","register","checkstatus"];
+    callJSfile($jsArr);       
+?>
+

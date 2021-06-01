@@ -87,7 +87,7 @@ if(isset($_POST["registerOn"])){
 function saveInfoToCsv($email, $phoneNvm, $password){
     $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
     $info = [$email, $phoneNvm, $hashedpassword];
-    $file = fopen("register.csv", "a");
+    $file = fopen("../data/register.csv", "a");
     flock($file, LOCK_EX);
     fputcsv($file,$info);
     flock($file, LOCK_UN);
@@ -97,9 +97,12 @@ function saveInfoToCsv($email, $phoneNvm, $password){
 
 function checkUniqueEmail($userEmail){
   $db = getRegisterEmail();
+  $adminID = getAdminID();
   foreach($db as $data){
     if($data == $userEmail){
       return false;
+    } else if($adminID == $userEmail){
+        return false;
     }
   }
   return true;
@@ -322,3 +325,4 @@ function checkZipcode($userZipcode)
         }
     }
 }
+
