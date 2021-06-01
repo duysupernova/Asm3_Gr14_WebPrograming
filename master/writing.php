@@ -1,12 +1,13 @@
 <?php
 require "../lib/commonphp.php";
-if ((!isset($_SESSION['admin']))&&
-    (!isset($_SESSION['login']))){
+if ((!isset($_SESSION['admin']))){
     header("location:myaccount.php");
 }
 
-$targetFile =$_POST["fileName"];
-$result = getData("../data/{$_POST["fileName"]}.txt","on");
+if(isset($_POST["fileName"])){
+    $targetFile = $_POST["fileName"];
+    $result = getData("../data/{$_POST["fileName"]}.txt","on");
+}
 // Load template
 require_once "../lib/head.php";
 $cssArr = ["dashboard","headerandfooter","cookies"];

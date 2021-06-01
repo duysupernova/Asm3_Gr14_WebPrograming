@@ -2,13 +2,7 @@
 
 // function
 function loginValidation() {
-    let errMsg = {
-        olEmail: [],
-    }
-    displayValidation(errMsg);
-    if (checkAllValidation(errMsg)){
-        localStorage.userCurrentId = userID;
-        return true;
-    }
-    return false;
+    var userID = document.querySelector("#uId").value;
+    localStorage.userCurrentId = userID;
+    return true;
 }
