@@ -96,6 +96,8 @@ if(isset($_POST["registerOn"])){
 }
 
 function saveInfoToCsv($email, $phoneNvm, $password){
+    //This function receives file name, and clean proccessing as parameters
+    // and save the information into assigned file.
     $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
     $info = [$email, $phoneNvm, $hashedpassword];
     $file = fopen("../data/register.csv", "a");
@@ -107,6 +109,8 @@ function saveInfoToCsv($email, $phoneNvm, $password){
 }
 
 function checkUniqueEmail($userEmail){
+    //This function check unique email
+    // and check the informatio, if corret return true, if wrong return false.
   $db = getRegisterEmail();
   $adminID = getAdminID();
   foreach($db as $data){
@@ -120,6 +124,8 @@ function checkUniqueEmail($userEmail){
 }
 
 function checkUniquePhoneNvm($userPhone){
+    //This function check unque phone number
+    // and check the informatio, if corret return true, if wrong return false.
   $db = getRegisterPhoneNvm();
   foreach($db as $data){
     if($data == $userPhone){
@@ -130,11 +136,8 @@ function checkUniquePhoneNvm($userPhone){
 }
 
 function checkEmail($email){
-<<<<<<< Updated upstream
-=======
     //This function receives user email
     // return true if it is a valid email and return false if it is not a email.
->>>>>>> Stashed changes
     $pattern = "/^[a-zA-Z0-9.]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)/";
     $lastReg =  "/^([A-Za-z]{2,5})$/";
     $num = 0;
@@ -233,6 +236,8 @@ function checkPhonenumber($phoneNvm){
 }
 
 function checkPassword($userpsw)
+    //This function check user password
+    // and return false if the password is wrong, else return true.
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($userpsw)) {
@@ -249,6 +254,8 @@ function checkPassword($userpsw)
 }
 
 function checkRetypepassword($rePassword,$userpsw)
+    //This function check user retype password
+    // and return false if the retype password is wrong, else return true.
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($rePassword)) {
@@ -262,6 +269,8 @@ function checkRetypepassword($rePassword,$userpsw)
 }
 
 function checkFname($userFname)
+    //This function check user frist name
+    // and return false if the frist name is wrong, else return true.
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($userFname)) {
@@ -279,6 +288,8 @@ function checkFname($userFname)
 
 
 function checkLname($userLname)
+    //This function check user last name
+    // and return false if the last name is wrong, else return true.
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($userLname)) {
@@ -295,6 +306,8 @@ function checkLname($userLname)
 }
 
 function checkAddress($userAddress)
+    //This function check user address
+    // and return false if the address is wrong, else return true.
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($userAddress)) {
@@ -311,6 +324,8 @@ function checkAddress($userAddress)
 }
 
 function checkCity($userCity)
+    //This function check user city
+    // and return false if the city is wrong, else return true.
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($userCity)) {
@@ -327,6 +342,8 @@ function checkCity($userCity)
 }
 
 function checkZipcode($userZipcode)
+    //This function check user zipcode
+    // and return false if the zipcode is wrong, else return true.
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($userZipcode)) {
