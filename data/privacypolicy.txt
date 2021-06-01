@@ -1,4 +1,4 @@
-title:privacy policy
+title:Privacy policy
 author:admin
 content:Privacy policy.<br />
 <br />

@@ -1,7 +1,6 @@
 <?php
 require "../lib/commonphp.php";
-if ((!isset($_SESSION['admin']))&&
-    (!isset($_SESSION['login']))){
+if ((!isset($_SESSION['admin']))){
     header("location:myaccount.php");
 }
 if(isset($_SESSION['uploadErr'])){

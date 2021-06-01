@@ -22,6 +22,10 @@ if(button){
     cartUpdate()
     popUp()
 })}
+if(buyButton){
+	buyButton.addEventListener('click',() => {    
+    cartUpdate()
+})}
 
 
 function cartNumber(){

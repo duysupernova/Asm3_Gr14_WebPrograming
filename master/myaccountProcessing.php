@@ -17,7 +17,9 @@ if(isset($_POST['loginSubmitOn'])){
             header("location:dashboard.php");
         } else if(checkUser($inputID, $inputPW)) {
             $_SESSION['login'] = true;
+            $_SESSION['userEmail'] = $_POST['uId'];
             unset($_SESSION["loginErr"]);
+            $_SESSION["userEmail"] = $_POST['uId'];
             header("location:mypage.php");
         } else {
             $_SESSION['loginErr'] = "Invalid username or password. Please check again.";

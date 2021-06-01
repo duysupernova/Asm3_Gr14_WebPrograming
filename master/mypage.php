@@ -41,7 +41,7 @@ require_once "../lib/header.php";
         </div>
         <div class="info">
             <h3>Email</h3>
-            <p id="mypageEmail">abc123@gmail.com</p>
+            <p id="mypageEmail"><?=$_SESSION["userEmail"]?></p>
         </div>
         <div class="info">
             <h3>Phone number</h3>
@@ -101,6 +101,6 @@ require_once "../lib/header.php";
     require_once "../lib/cookie.php";
     require_once "../lib/footer.php";
     require_once "../lib/script.php";
-    $jsArr = ["cookies", "mypage"];
+    $jsArr = ["cookies"];
     callJSfile($jsArr);       
 ?>
