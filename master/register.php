@@ -451,6 +451,5 @@ require_once "../lib/header.php";
     require_once "../lib/footer.php";
     require_once "../lib/script.php";
     $jsArr = ["cookies","register","checkstatus"];
-    // formvalidation
     callJSfile($jsArr);       
 ?>
