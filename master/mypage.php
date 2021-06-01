@@ -41,7 +41,7 @@ require_once "../lib/header.php";
         </div>
         <div class="info">
             <h3>Email</h3>
-            <p id="mypageEmail"><?=$_SESSION['userEmail']?></p>
+            <p id="mypageEmail"><?=$_SESSION["userEmail"]?></p>
         </div>
         <div class="info">
             <h3>Phone number</h3>

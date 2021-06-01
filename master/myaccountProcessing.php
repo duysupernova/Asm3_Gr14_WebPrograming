@@ -19,6 +19,7 @@ if(isset($_POST['loginSubmitOn'])){
             $_SESSION['login'] = true;
             $_SESSION['userEmail'] = $_POST['uId'];
             unset($_SESSION["loginErr"]);
+            $_SESSION["userEmail"] = $_POST['uId'];
             header("location:mypage.php");
         } else {
             $_SESSION['loginErr'] = "Invalid username or password. Please check again.";
