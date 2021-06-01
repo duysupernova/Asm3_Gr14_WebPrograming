@@ -29,7 +29,7 @@ require_once "../lib/header.php";
         <label for="=profile">
             <h2>Uploading photo:</h2>
         </label>
-        <input type="file" id="profile" name="profile" required>
+        <input type="file" id="profile" name="profile" accept="image/png, image/jpeg" required>
         <p>Our website only accepts png and jpeg file. Thank you.</p>
         <?php if(isset($errMsg)){echo $errMsg;}?>
         <input type="submit" name="uploadSubmitOn" value="Upload">
