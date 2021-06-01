@@ -7,53 +7,12 @@ callCSSfile($cssArr, $fileTitle);
 require_once "../lib/header.php";
 ?>
 <main>
-    <div class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h1>WELCOME TO OUR MALL</h1>
-                    <p>“To uncover your true potential you must first find your own limits and then you have to have the
-                        courage to blow past them.” – Picabo Street</p>
-                </div>
-                <div class="col">
-                    <img id="home" src="New_products/home.png" alt="Home page image">
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Body -->
     <div class="tag">
         <h1>New Stores</h1>
         <div class="slider-wrap">
             <div class="slider">
-                <div class="slider-item">
-                    <div class="img-div"></div>
-                </div>
-                <div class="slider-item">
-                    <div class="img-div"></div>
-                </div>
-                <div class="slider-item">
-                    <div class="img-div"></div>
-                </div>
-                <div class="slider-item">
-                    <div class="img-div"></div>
-                </div>
-                <div class="slider-item">
-                    <div class="img-div"></div>
-                </div>
-                <div class="slider-item">
-                    <div class="img-div"></div>
-                </div>
-            </div>
-        </div>
-        <div class="tag">
-            <h1>New Product</h1>
-            <div class="tag">
-                <h1>New Stores</h1>
-                <div class="slider-wrap">
-                    <div class="slider">
-                        <div class="slider">
-                            <?php
+                <?php
             require_once 'stores_function.php';
             $new_stores_names = array();
             $new_stores = read_newest_stores();
@@ -72,66 +31,15 @@ require_once "../lib/header.php";
                 }
             }
             ?>
-                        </div>
-                    </div>
-                </div>
-                <div class="tag">
-                    <h1>New products</h1>
-                </div>
-                <div class="slider-wrap1">
-                    <div class="slider1">
-                        <?php
-            require_once 'product_functions.php';
-            $new_products_names = array();
-            $new_products = read_all_products();
-            $new_products_count = 0;
-            foreach ($new_products as $new_product) {
-                $name = $new_product['name'];
-                $price = $new_product['price'];
-                echo "
-                <div class='slider-item1'>
-                    <div class='img-div1'></div>
-                    <h3>$name</h3>
-                    <h3>$price</h3>
-                </div>
-        ";
-                $new_products_count++;
-                if ($new_products_count == 10) {
-                    break;
-                }
-            }
-            ?>
-                    </div>
-                    <div class="slider-wrap1">
-                        <div class="slider1">
-                            <div class="slider-item1">
-                                <div class="img-div1"></div>
-                            </div>
-                            <div class="slider-item1">
-                                <div class="img-div1"></div>
-                            </div>
-                            <div class="slider-item1">
-                                <div class="img-div1"></div>
-                            </div>
-                            <div class="slider-item1">
-                                <div class="img-div1"></div>
-                            </div>
-                            <div class="slider-item1">
-                                <div class="img-div1"></div>
-                            </div>
-                            <div class="slider-item1">
-                                <div class="img-div1"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <div class="tag">
-                <h1>New products</h1>
-            </div>
-            <div class="slider-wrap1">
-                <div class="slider1">
-                    <?php
+        </div>
+    </div>
+    <div class="tag">
+        <h1>New products</h1>
+    </div>
+    <div class="slider-wrap1">
+        <div class="slider1">
+            <?php
             require_once 'product_functions.php';
             $new_products_names = array();
             $new_products = read_newest_products();
@@ -152,15 +60,15 @@ require_once "../lib/header.php";
                 }
             }
             ?>
-                </div>
-            </div>
         </div>
-        <div class="tag">
-            <h1>Featured Stores</h1>
-        </div>
-        <div class="slider-wrap2nd">
-            <div class="slider2nd">
-                <?php
+    </div>
+    </div>
+    <div class="tag">
+        <h1>Featured Stores</h1>
+    </div>
+    <div class="slider-wrap2nd">
+        <div class="slider2nd">
+            <?php
             require_once 'product_functions.php';
             $featured_store_names = array();
             $featured_stores = read_featured_products();
@@ -179,8 +87,8 @@ require_once "../lib/header.php";
                 }
             }
             ?>
-            </div>
         </div>
+    </div>
     </div>
     <div class="tag">
         <h1>Featured Products</h1>
