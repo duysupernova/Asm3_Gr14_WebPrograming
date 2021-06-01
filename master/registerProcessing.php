@@ -21,18 +21,7 @@ if(isset($_POST["registerOn"])){
         $userLName = htmlentities($_POST["lName"]);
         $userAddress = htmlentities($_POST["address"]);
         $userCity = htmlentities($_POST["city"]);
-        $userZCode = htmlentities($_POST["zCode"]);
-
-        if(!checkUniqueEmail($userEmail)){
-            $_SESSION["rEmailErr"] = "Email Address is not Unique. Please use another email.";
-        }else{
-            unset($_SESSION["rEmailErr"]);
-        }
-        if(!checkUniquePhoneNvm($userPhone)){
-            $_SESSION["rPhoneNvmErr"] = "Phone number is not Unique. Please use another Phone number.";
-        }else{
-            unset($_SESSION["rPhoneNvmErr"]);
-        }   
+        $userZCode = htmlentities($_POST["zCode"]);  
         if(!checkEmail($userEmail)){
             $_SESSION["rEmailErr"] = "Invalid email. Please check again.";
         } else {
@@ -77,7 +66,13 @@ if(isset($_POST["registerOn"])){
             $_SESSION["zCodeErr"] = "Invalid zip code. Please check again.";
         } else {
             unset($_SESSION["zCodeErr"]);
-        } 
+        }
+        if(!checkUniqueEmail($userEmail)){
+            $_SESSION["rEmailErr"] = "Email Address is not Unique. Please use another email.";
+        }
+        if(!checkUniquePhoneNvm($userPhone)){
+            $_SESSION["rPhoneNvmErr"] = "Phone number is not Unique. Please use another Phone number.";
+        }
         if(isset($_SESSION["rEmailErr"])||
             isset($_SESSION["rPhoneNvmErr"])||
             isset($_SESSION["pswErr"])||
@@ -99,10 +94,10 @@ function saveInfoToCsv($email, $phoneNvm, $password){
     //This function receives file name, and clean proccessing as parameters
     // and save the information into assigned file.
     $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
-    $info = [$email, $phoneNvm, $hashedpassword];
+    $info = "\n{$email}, {$phoneNvm}, {$hashedpassword}";
     $file = fopen("../data/register.csv", "a");
     flock($file, LOCK_EX);
-    fputcsv($file,$info);
+    fwrite($file,$info);
     flock($file, LOCK_UN);
     fclose($file);
 
