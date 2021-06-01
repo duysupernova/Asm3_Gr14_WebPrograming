@@ -6,66 +6,78 @@ if(isset($_POST["registerOn"])){
         isset($_POST["rPhoneNvm"]) &&
         isset($_POST["psw"]) &&
         isset($_POST["pswCheck"]) &&
+        isset($_POST["pic"]) &&
         isset($_POST["fName"]) &&
         isset($_POST["lName"]) &&
         isset($_POST["address"]) &&
         isset($_POST["city"]) &&
         isset($_POST["zCode"]) ){
-        if(!checkEmail($_POST["rEmail"])){
+
+        $userEmail = htmlentities($_POST["rEmail"]);
+        $userPhone = htmlentities($_POST["rPhoneNvm"]);
+        $userPSW = htmlentities($_POST["psw"]); 
+        $userRE = htmlentities($_POST["pswCheck"]);
+        $userFName = htmlentities($_POST["fName"]);
+        $userLName = htmlentities($_POST["lName"]);
+        $userAddress = htmlentities($_POST["address"]);
+        $userCity = htmlentities($_POST["city"]);
+        $userZCode = htmlentities($_POST["zCode"]);
+
+        if(!checkUniqueEmail($userEmail)){
+            $_SESSION["rEmailErr"] = "Email Address is not Unique. Please use another email.";
+        }else{
+            unset($_SESSION["rEmailErr"]);
+        }
+        if(!checkUniquePhoneNvm($userPhone)){
+            $_SESSION["rPhoneNvmErr"] = "Phone number is not Unique. Please use another Phone number.";
+        }else{
+            unset($_SESSION["rPhoneNvmErr"]);
+        }   
+        if(!checkEmail($userEmail)){
             $_SESSION["rEmailErr"] = "Invalid email. Please check again.";
         } else {
             unset($_SESSION["rEmailErr"]);
         }
-        if(!checkPhonenumber($_POST["rPhoneNvm"])){
+        if(!checkPhonenumber($userPhone)){
             $_SESSION["rPhoneNvmErr"] = "Invalid phone number. Please check again.";
         } else {
             unset($_SESSION["rPhoneNvmErr"]);
         }
-        if(!checkPassword($_POST["psw"])){
+        if(!checkPassword($userPSW)){
             $_SESSION["pswErr"] = "Invalid password. Please check again.";
         } else {
             unset($_SESSION["pswErr"]);
         }
-        if(!checkRetypepassword($_POST["pswCheck"], $_POST["psw"])){
+        if(!checkRetypepassword($userRE, $userPSW)){
             $_SESSION["pswCheckErr"] = "Invalid password. Please check again.";
         } else {
             unset($_SESSION["pswCheckErr"]);
         }
-        if(!checkFname($_POST["fName"])){
+        if(!checkFname($userFName)){
             $_SESSION["fNameErr"] = "Invalid first name. Please check again.";
         } else {
             unset($_SESSION["fNameErr"]);
         }
-        if(!checkLname($_POST["lName"])){
+        if(!checkLname($userLName)){
             $_SESSION["lNameErr"] = "Invalid last name. Please check again.";
         } else {
             unset($_SESSION["lNameErr"]);
         }
-        if(!checkAddress($_POST["address"])){
+        if(!checkAddress($userAddress)){
             $_SESSION["addressErr"] = "Invalid address. Please check again.";
         } else {
             unset($_SESSION["addressErr"]);
         }
-        if(!checkCity($_POST["city"])){
+        if(!checkCity($userCity)){
             $_SESSION["cityErr"] = "Invalid city. Please check again.";
         } else {
             unset($_SESSION["cityErr"]);
         }
-        if(!checkZipcode($_POST["zCode"])){
+        if(!checkZipcode($userZCode)){
             $_SESSION["zCodeErr"] = "Invalid zip code. Please check again.";
         } else {
             unset($_SESSION["zCodeErr"]);
-        }
-        if(!checkUniqueEmail($_POST["rEmail"])){
-            $_SESSION["rEmailErr"] = "Email Address is not Unique. Please use another email.";
-        }else{
-            unset($_SESSION["addressErr"]);
-        }
-        if(!checkUniquePhoneNvm($_POST["rPhoneNvm"])){
-            $_SESSION["rPhoneNvmErr"] = "Phone number is not Unique. Please use another Phone number.";
-        }else{
-            unset($_SESSION["addressErr"]);
-        }    
+        } 
         if(isset($_SESSION["rEmailErr"])||
             isset($_SESSION["rPhoneNvmErr"])||
             isset($_SESSION["pswErr"])||
@@ -74,12 +86,11 @@ if(isset($_POST["registerOn"])){
             isset($_SESSION["lNameErr"])||
             isset($_SESSION["addressErr"])||
             isset($_SESSION["cityErr"])||
-            isset($_SESSION["zCodeErr"])
-        ){
-            header("location:real.php"); //register.php
+            isset($_SESSION["zCodeErr"])){
+            header("location:register.php");
         } else {
             saveInfoToCsv($_POST["rEmail"], $_POST["rPhoneNvm"], $_POST["psw"]);
-            echo "good";
+            header("location:myaccount.php");
         }
     }
 }
@@ -119,6 +130,11 @@ function checkUniquePhoneNvm($userPhone){
 }
 
 function checkEmail($email){
+<<<<<<< Updated upstream
+=======
+    //This function receives user email
+    // return true if it is a valid email and return false if it is not a email.
+>>>>>>> Stashed changes
     $pattern = "/^[a-zA-Z0-9.]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)/";
     $lastReg =  "/^([A-Za-z]{2,5})$/";
     $num = 0;
@@ -325,4 +341,3 @@ function checkZipcode($userZipcode)
         }
     }
 }
-
