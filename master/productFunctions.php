@@ -1,7 +1,8 @@
 <?php
 
 function readAllProducts() {
-  $fileName = '../data/products.csv';  //them ../ vao trc 
+  $fileName = '../data/products.csv';
+  // Read all products line by lines
   $open = fopen($fileName, 'r');
   $first = fgetcsv($open);
   $products = [];
@@ -18,9 +19,11 @@ function readAllProducts() {
 }
 
 function timecomp($a,$b){
+  //This function sorted product by created time
   return strtotime($b['created_time'])-strtotime($a['created_time']);
 }
 function readNewestProducts() {
+  //This function read all the newest store lines by lines and sort newest products by created time
   $fileName = '../data/products.csv';
   $open = fopen($fileName, 'r');
   $first = fgetcsv($open);
@@ -40,6 +43,7 @@ function readNewestProducts() {
 
 }
 function readFeaturedProducts() {
+  //This function read all the featured store lines by lines
   $fileName = '../data/products.csv';
   $open = fopen($fileName, 'r');
   $first = fgetcsv($open);
@@ -60,6 +64,7 @@ function readFeaturedProducts() {
 
 
 function getProduct($productId) {
+  //This function read the product by product ID
   $products = readAllProducts();
   foreach ($products as $p) {
     if ($p['id'] == $productId) {
