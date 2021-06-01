@@ -10,7 +10,7 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <meta name="author" content="Khang Tran s3855823">
-    <title>Asport | CART</title>
+    <title>BOX | CART</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/headerandfooter.css" />
@@ -19,7 +19,7 @@ session_start();
 </head>
 
 <body>
-    <div id="shop-name" hidden>sport</div>
+    <div id="shop-name" hidden>BOX</div>
     <div class="header">
         <!-- Header -->
         <header>

@@ -99,7 +99,7 @@ for ($i=0; $i < count($sort_products); $i++) {
                 $link ="1.html";
             }
             echo '<div class="col-product-4">
-                    <a href=<' .$link.'?>>
+                    <a href=' .$link.'>
 <img src="img/product/' .$img.'" alt="<' .$name.'>">
 </a>
 <h3>' .$name.'</h3>
@@ -194,7 +194,7 @@ for ($i = 0; $i < $arr_size ; $i ++) { $current_data=$arr[$i]; $new_arrivals_dat
         //display all the product in the given array with the format of $featured_store_products
     for ($i=0; $i < count($featured_store_products); $i++) { $product=$featured_store_products[$i]; $data=explode(",",
         $product); $name=$data[1]; $price=$data[2]; $img="1.png" ; echo '<div class="col-product-3">
-            <img src="img/product/' .$img.'"alt="'.$name.'">
+        <a href="1.html"><img src="img/product/' .$img.'"alt="'.$name.'"></a>
         <h3>'.$name.'</h3>
         <div class="rating">
             <i class="fa fa-star"></i>
@@ -212,7 +212,7 @@ for ($i = 0; $i < $arr_size ; $i ++) { $current_data=$arr[$i]; $new_arrivals_dat
             //display all the product in the given array with the format of $new_arrivals
         for ($i=0; $i < count($new_arrivals); $i++) { $product=$new_arrivals[$i]; $data=explode(",", $product);
             $name=$data[1]; $price=$data[2]; $img="2.png" ; echo' <div class="col-product-4">
-            <img src="img/product/'.$img.'" alt="'.$name.'">
+            <a href="2.html"><img src="img/product/' .$img.'"alt="'.$name.'"></a>
             <h3>'.$name.'</h3>
             <p>$'.$price.'</p>
             </div>';
