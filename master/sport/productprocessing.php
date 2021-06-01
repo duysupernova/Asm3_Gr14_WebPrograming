@@ -1,5 +1,7 @@
 <?php
 function sortCSVFile($file, $columnToSortByIndex = 0, $asc = true ){
+    //Take csv file in and sort it  according to the parameters
+    //$columnToSortByIndex sort by ascending or decending base on $asc
     //1- prepare data
     $csvArray = array_map('str_getcsv', file($file));
     if(!$csvArray) return [];
@@ -31,6 +33,7 @@ function sortCSVFile($file, $columnToSortByIndex = 0, $asc = true ){
      return $csvArray;
 }
 function getAllProducts($id){
+    //read the product csv and get all the product with the $id
     $all_products = [];
     $path = "../../data/products.csv";
     $file = fopen($path,"r");
@@ -58,6 +61,7 @@ function getAllProducts($id){
 }
 
 function sortSelect($option){
+    //Using sortCSVFile to return an array of sorted values base on the products.csv
     $path = "../../data/products.csv";
     if($option == 1){
         return sortCSVFile($path);
@@ -74,6 +78,7 @@ function sortSelect($option){
     }
 }
 function displayProduct($sort_products,  $paginationStart, $last_product){
+//display all the product in $sort_products
 for ($i=0; $i < count($sort_products); $i++) {
     $link = "";
    if($i != 0){
@@ -113,7 +118,7 @@ for ($i=0; $i < count($sort_products); $i++) {
 
 function get_new_arrivals($arr, $arr_size)
 {
-
+    //update / sort the $new_arrivals list with the value from the parse in $arr
 global $new_arrivals;
 $i =0;
 $first = 0;
@@ -122,7 +127,6 @@ $third = 0;
 $fourth = 0;
 $fifth = 0;
 $counter = 0;
-
 for ($i = 0; $i < $arr_size ; $i ++) { $current_data=$arr[$i]; $new_arrivals_data=explode(",", $arr[$i]);{
     $new_arrivals_created_time=$new_arrivals_data[3];
     $new_arrivals_data_timestamp=strtotime($new_arrivals_created_time);
@@ -166,8 +170,8 @@ for ($i = 0; $i < $arr_size ; $i ++) { $current_data=$arr[$i]; $new_arrivals_dat
     }
     }
     }
-
     function getStoreName($id){
+    //Search the stores.csv for the matched id and return it's name
     $path = "../../data/stores.csv";
     $file = fopen($path,"r");
     $counter = 1;
@@ -187,6 +191,7 @@ for ($i = 0; $i < $arr_size ; $i ++) { $current_data=$arr[$i]; $new_arrivals_dat
     fclose($file);
     }
     function displayFeatureProduct($featured_store_products){
+        //display all the product in the given array with the format of $featured_store_products
     for ($i=0; $i < count($featured_store_products); $i++) { $product=$featured_store_products[$i]; $data=explode(",",
         $product); $name=$data[1]; $price=$data[2]; $img="1.png" ; echo '<div class="col-product-3">
             <img src="img/product/' .$img.'"alt="'.$name.'">
@@ -204,6 +209,7 @@ for ($i = 0; $i < $arr_size ; $i ++) { $current_data=$arr[$i]; $new_arrivals_dat
         }
         }
         function displayNewProduct($new_arrivals){
+            //display all the product in the given array with the format of $new_arrivals
         for ($i=0; $i < count($new_arrivals); $i++) { $product=$new_arrivals[$i]; $data=explode(",", $product);
             $name=$data[1]; $price=$data[2]; $img="2.png" ; echo' <div class="col-product-4">
             <img src="img/product/'.$img.'" alt="'.$name.'">
@@ -212,4 +218,3 @@ for ($i = 0; $i < $arr_size ; $i ++) { $current_data=$arr[$i]; $new_arrivals_dat
             </div>';
             }
             }
-            ?>
