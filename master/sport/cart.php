@@ -1,3 +1,9 @@
+<<<<<<< Updated upstream
+=======
+<?php
+session_start();
+?>
+>>>>>>> Stashed changes
 <!DOCTYPE html>
 <html>
 
@@ -9,21 +15,21 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/headerandfooter.css" />
-	 <link rel="stylesheet" type ="text/css" href="../css/cookies.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cookies.css" />
     <script src="https://kit.fontawesome.com/13954ad90d.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-<div id ="shop-name" hidden>sport</div>
+    <div id="shop-name" hidden>sport</div>
     <div class="header">
         <!-- Header -->
         <header>
             <div class="bar-content">
                 <div class="bar-content center">
-                    <img  src="img/logo.png">
+                    <img src="img/logo.png">
                     <label class="bar__nav-toggle" for="inpNavToggle">
-                        <div class = "icon">
-                            <i id = "ham" class="fas fa-bars"></i>
+                        <div class="icon">
+                            <i id="ham" class="fas fa-bars"></i>
                         </div>
                     </label>
                     <input type="checkbox" id="inpNavToggle" />
@@ -33,21 +39,21 @@
                         <a class="link" href="product.php">Product</a>
                         <a class="link" href="contact.html">Contact</a>
                         <a class="link cart-number" href="cart.php">
-								
 
-						</a>
+
+                        </a>
 
                     </nav>
                 </div>
             </div>
-        </header>   
-		<div id="myModal" class="modal">
-		  <!-- Modal content -->
-		  <div class="modal-content">
-			<span class="close">&times;</span>
-			This is an invalid coupon. Please check again.
-		  </div>
-		</div>  
+        </header>
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                This is an invalid coupon. Please check again.
+            </div>
+        </div>
         <?php
         session_start();
         $_SESSION['login'] = false;
@@ -67,39 +73,39 @@
                     </div>';
         }
         ?>
-        
+
         <!-- CART -->
         <div class="container-cart">
-            <table class = "cart">
+            <table class="cart">
                 <tr>
                     <th>Product</th>
                     <th>Quanity</th>
                     <th>Subtotal</th>
                 </tr>
-                
+
             </table>
             <div class="total-price">
                 <table>
                     <tr>
-                        <td >Subtotal</td>
-                        <td class = "sub-total">$130</td>
+                        <td>Subtotal</td>
+                        <td class="sub-total">$130</td>
                     </tr>
                     <tr>
-                        <td >Tax</td>
-                        <td class = "tax">$13</td>
+                        <td>Tax</td>
+                        <td class="tax">$13</td>
                     </tr>
                     <tr>
                         <td>Delivery</td>
-                        <td class = "delivery">$5</td>
+                        <td class="delivery">$5</td>
                     </tr>
-					<tr>
+                    <tr>
                         <td>COUPON</td>
-                        <td><input class = "coupon"  type="text">
-						</td>
+                        <td><input class="coupon" type="text">
+                        </td>
                     </tr>
                     <tr>
                         <td style="font-weight: bold;">TOTAL</td>
-                        <td style="font-weight: bold;" class = "total">$148</td>
+                        <td style="font-weight: bold;" class="total">$148</td>
                     </tr>
                 </table>
 
@@ -110,18 +116,19 @@
             </div>
         </div>
     </div>
-	 <!--Cookies-->
-     <div class="popup_cookies">
+    <!--Cookies-->
+    <div class="popup_cookies">
         <img src="../New_products/cookie.gif" alt="A cookie">
         <div class="cookies_content">
-          <h1>We use Cookies!</h1>
-          <p>This website use cookies to help us maintain the functioning. By continuing browsing, you consent to use our use of cookies and other technologies.</p>
-          <div class="cookies_buttons">
-            <button class="learn_more">I agree</button>
-            <a href="https://gdpr-info.eu/" class="learn_more">GDPR</a>
-          </div>
+            <h1>We use Cookies!</h1>
+            <p>This website use cookies to help us maintain the functioning. By continuing browsing, you consent to use
+                our use of cookies and other technologies.</p>
+            <div class="cookies_buttons">
+                <button class="learn_more">I agree</button>
+                <a href="https://gdpr-info.eu/" class="learn_more">GDPR</a>
+            </div>
         </div>
-      </div>
+    </div>
     <footer>
         <a class="footer-link" href="footerContents/copyright.html">
             <i class="far fa-copy"></i>
@@ -138,9 +145,9 @@
     </footer>
 
 </body>
-	<script type="text/javascript" src="../js/cookies.js"></script>
-<script src ="./js/product.js" ></script>
-<script src ="./js/cart.js" ></script>
+<script type="text/javascript" src="../js/cookies.js"></script>
+<script src="./js/product.js"></script>
+<script src="./js/cart.js"></script>
 
 
 </html>
