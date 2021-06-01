@@ -1,0 +1,2 @@
+id:admin
+pw:$2y$10$cFbq7.TR7GxpHA48FRYXt.9fNGCA.QMwU8wBgcvQhQ3p2JyalRccW

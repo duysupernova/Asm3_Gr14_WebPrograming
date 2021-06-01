@@ -1,0 +1,5 @@
+title:Copyright
+author:admin
+content:Copyright.<br />
+<br />
+This is copyright.
